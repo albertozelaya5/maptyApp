@@ -1,7 +1,5 @@
 # 🏃‍♂️🚴‍♀️ Mapty - Workout Tracking App
 
-![Mapty Screenshot](./mapty-screenshot.png) _Add your screenshot here_
-
 A geolocation-based workout tracker that lets you log running and cycling activities on an interactive map. Built with JavaScript and the Leaflet library as part of Jonas Schmedtmann's "The Ultimate React Course 2025".
 
 ## 🌟 Features
