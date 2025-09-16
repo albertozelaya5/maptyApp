@@ -1,0 +1,130 @@
+/* 1296px LAPTOPS */
+@media (max-width: 81em) {
+  .sidebar {
+    flex-basis: 25rem;
+    padding: 3.2rem 1.6rem 3.2rem 1.6rem;
+  }
+
+  .logo {
+    margin-bottom: 2.4rem;
+  }
+
+  /* WORKOUT DETAILS */
+  .workouts {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    margin-bottom: 4.8rem;
+  }
+
+  /* WORKOUT CARD */
+  .workout {
+    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, 12.8rem);
+  }
+
+  .workout__title {
+    margin-bottom: 1.2rem;
+  }
+
+  .workout__details {
+    gap: 0.8rem;
+  }
+
+  .workout__details:nth-child(4) .workout__icon {
+    margin: 0 -0.4rem;
+  }
+
+  .workout__icon,
+  .workout__value {
+    margin-right: 0;
+  }
+}
+
+/* 928px LANDSCAPE TABLETS */
+@media (max-width: 58em) {
+  html {
+    font-size: 50%;
+  }
+
+  .sidebar {
+    max-width: 30%;
+  }
+}
+
+/* 704px SMALL TABLETS */
+@media (max-width: 44em) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    position: relative;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  .sidebar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+
+    max-width: 100%;
+    transform: translate(0, 85%);
+    border-radius: 30px 30px 0 0;
+  }
+
+  .workouts {
+    gap: 2.4rem;
+  }
+
+  .logo {
+    height: 6.4rem;
+    margin-bottom: 4.4rem;
+  }
+
+  .workout {
+    max-width: 80%;
+    grid-template-columns: repeat(auto-fill, 1fr);
+    gap: 0;
+  }
+
+  .workout__title {
+    font-size: 2rem;
+  }
+
+  .workout__value {
+    font-size: 1.6rem;
+  }
+}
+
+/* 496px MOBILE PHONES */
+@media (max-width: 31em) {
+  .workouts {
+    gap: 1.8rem;
+    margin-bottom: 0;
+  }
+
+  .workout {
+    max-width: 100%;
+    gap: 0.8rem 1.6rem;
+  }
+
+  .workout__title {
+    font-size: 1.8rem;
+  }
+
+  .workout__value {
+    font-size: 1.6rem;
+  }
+}
+
+/* 
+- Font sizes (px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+- Spacing system (px)
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+*/
