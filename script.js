@@ -72,6 +72,7 @@ const cycling = new Cycling([39, -12], 27, 95, 523);
 
 ///////////////////////////
 // APLICATION ARCHITECTURE
+const sidebar = document.querySelector('.sidebar');
 const form = document.querySelector('.form');
 const containerWorkouts = document.querySelector('.workouts');
 const inputType = document.querySelector('.form__input--type');
@@ -101,6 +102,17 @@ class App {
     inputType.addEventListener('change', this._toggleElevationField);
 
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    this._transportSideBar();
+  }
+
+  /* SMALL TABLETS AND MOBILE RES */
+  _transportSideBar() {
+    if (window.innerWidth > 704) return;
+
+    sidebar.addEventListener('click', function () {
+      this.classList.toggle('active');
+    });
   }
 
   _getPosition() {
@@ -340,9 +352,9 @@ class App {
     });
   }
 
-  reset(){
-    localStorage.removeItem("workouts")
-    location.reload()
+  reset() {
+    localStorage.removeItem('workouts');
+    location.reload();
   }
 }
 

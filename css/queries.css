@@ -9,6 +9,30 @@
     margin-bottom: 2.4rem;
   }
 
+  /* FORM */
+  .form {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    padding: 1.8rem 3.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .form__row {
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .form .form__row:nth-child(4) {
+    margin-bottom: 0;
+    padding-bottom: 1.2rem;
+  }
+
+  .form__input {
+    width: 100%;
+  }
+
   /* WORKOUT DETAILS */
   .workouts {
     display: flex;
@@ -70,10 +94,18 @@
     top: 0;
     width: 100vw;
     height: 100vh;
+    z-index: 2000;
 
     max-width: 100%;
     transform: translate(0, 85%);
     border-radius: 30px 30px 0 0;
+    transition: all 0.4s;
+    box-shadow: inset 0 2px 0 0 rgb(0, 196, 106, 0.8);
+  }
+
+  .sidebar.active {
+    transform: translate(0, 60%);
+    box-shadow: none;
   }
 
   .workouts {
@@ -83,6 +115,19 @@
   .logo {
     height: 6.4rem;
     margin-bottom: 4.4rem;
+  }
+
+  /* FORM */
+  .form {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 1.2rem;
+    width: 60%;
+  }
+
+  .form__input {
+    width: 100%;
   }
 
   .workout {
@@ -105,6 +150,17 @@
   .workouts {
     gap: 1.8rem;
     margin-bottom: 0;
+  }
+
+  .logo {
+    margin-bottom: 6.2rem;
+  }
+
+  /* FORM */
+  .form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
   }
 
   .workout {
