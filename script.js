@@ -2,6 +2,7 @@
 
 // prettier-ignore
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const resValidation = window.innerWidth > 704;
 
 //* Se definen variables globales que luego serán iguales a lo que se les asigne, eventos o instancias
 
@@ -86,6 +87,8 @@ class App {
   #mapZoomLevel = 13;
   #mapEvent;
   #workouts = [];
+  #focusCount = 0;
+
   //*constructor se llama cuando se crea la instancia, cuando la page loads
   constructor() {
     // Get users position
@@ -108,11 +111,15 @@ class App {
 
   /* SMALL TABLETS AND MOBILE RES */
   _transportSideBar() {
-    if (window.innerWidth > 704) return;
+    if (resValidation) return;
 
-    sidebar.addEventListener('click', function () {
-      this.classList.toggle('active');
-    });
+    sidebar.addEventListener('click', this._upSidebAR.bind(sidebar));
+  }
+
+  _upSidebAR(e) {
+    if (e && e.target !== e.currentTarget) return;
+
+    this.classList.toggle('active');
   }
 
   _getPosition() {
@@ -124,7 +131,7 @@ class App {
         this._loadMap.bind(this),
         function () {
           alert('Could not get your position');
-        }
+        },
       );
     }
   }
@@ -156,9 +163,14 @@ class App {
   }
 
   _showForm(mapE) {
+    this._upSidebAR.call(sidebar);
+
     this.#mapEvent = mapE;
+    this.#focusCount++;
     form.classList.remove('hidden');
-    inputDistance.focus(); //*para poner foco en este elemento
+
+    if (this.#focusCount > 1 && resValidation) return;
+    inputDistance.focus(); //*para poner foco en este elemento //!
   }
 
   _toggleElevationField() {
@@ -240,10 +252,10 @@ class App {
           autoClose: false,
           closeOnClick: false,
           className: `${workout.type}-popup`,
-        })
+        }),
       )
       .setPopupContent(
-        `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
+        `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`,
       )
       .openPopup();
   }
@@ -319,7 +331,7 @@ class App {
     if (!workoutEl) return;
 
     const workout = this.#workouts.find(
-      work => work.id === workoutEl.dataset.id //*Como esta dentro del data usar dataset "data-id"
+      work => work.id === workoutEl.dataset.id, //*Como esta dentro del data usar dataset "data-id"
     );
 
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
